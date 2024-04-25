@@ -1,0 +1,26 @@
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const Admin = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the user is logged in
+    // This example checks a token in local storage; adjust based on your auth strategy
+    const isLoggedIn = localStorage.getItem('userToken');
+
+    if (!isLoggedIn) {
+      // Redirect to /adminlogin if not logged in
+      navigate('/adminlogin');
+    }
+  }, [navigate]);
+
+  // Your existing component code
+  return (
+    <div>
+      {/* Content for logged-in users */}
+    </div>
+  );
+};
+
+export default Admin;
